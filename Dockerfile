@@ -12,7 +12,7 @@ RUN pip install --no-cache-dir -r requirements.txt
 
 # کپی کل پروژه به کانتینر
 COPY . .
-
+RUN touch db.json
 # expose پورت پیش‌فرض FastAPI
 EXPOSE 8000
 

@@ -8,6 +8,7 @@ from pathlib import Path
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
 
+
 DB_FILE = Path("db.json")
 
 # بارگذاری دیتابیس از فایل
