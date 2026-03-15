@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fa">
+
+<head>
+    <meta charset="UTF-8">
+    <title>اشتراک متن</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f4f8;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 400px;
+        }
+
+        textarea {
+            width: 100%;
+            padding: 10px;
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            resize: none;
+        }
+
+        button {
+            margin-top: 15px;
+            padding: 10px 20px;
+            border: none;
+            background: #4CAF50;
+            color: white;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+        p.link-box {
+            margin-top: 20px;
+            background: #eef6ff;
+            padding: 10px;
+            border-radius: 10px;
+            word-break: break-all;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>متن خود را وارد کنید</h1>
+        <form action="/create_link" method="post">
+            <textarea name="user_text" rows="5" placeholder="متن خود را اینجا بنویسید"></textarea><br>
+            <button type="submit">ساخت لینک</button>
+        </form>
+
+        {% if link %}
+        <p class="link-box">لینک شما: <a href="{{ link }}">{{ link }}</a></p>
+        <button onclick="copyText()">کپی کردن</button>
+        {% endif %}
+
+    </div>
+    <script>
+        function copyText() {
+            const textarea = document.querySelector('.link-box');
+            textarea.select();
+            document.execCommand('copy');
+            alert('متن کپی شد!');
+        }
+    </script>
+</body>
+
+</html>
