@@ -17,3 +17,7 @@ EXPOSE 8000
 
 # اجرای اپ با uvicorn
 CMD ["uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000"]
+
+# docker build -t ghcr.io/starco76/text_share:7 .
+# docker push ghcr.io/starco76/text_share:7
+# docker pull ghcr.hamdocker.ir/starco76/text_share:7

@@ -21,11 +21,12 @@ def home(request: Request):
 @app.post("/create_link", response_class=HTMLResponse)
 def create_link(request: Request, user_text: str = Form(...)):
     # ساخت یه شناسه یکتا
-    text_id = str(uuid.uuid4())
+    text_id = str(uuid.uuid4())[:8]
     texts[text_id] = user_text
+    full_link = str(request.base_url) + f"text/{text_id}"
     return templates.TemplateResponse("index.html", {
         "request": request,
-        "link": f"/text/{text_id}"
+        "link": full_link
     })
 
 

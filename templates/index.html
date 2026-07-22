@@ -77,13 +77,15 @@
 
         {% if link %}
         <p class="link-box">لینک شما: <a href="{{ link }}">{{ link }}</a></p>
+
+        <textarea id="link" readonly>{{ link }}</textarea>
         <button onclick="copyText()">کپی کردن</button>
         {% endif %}
 
     </div>
     <script>
         function copyText() {
-            const textarea = document.querySelector('.link-box');
+            const textarea = document.querySelector('#link');
             textarea.select();
             document.execCommand('copy');
             alert('متن کپی شد!');
